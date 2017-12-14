@@ -23,7 +23,9 @@ db = SQLAlchemy(app)
 api.add_resource(HelloController, '/api/hello')
 
 if __name__ == '__main__':
+    db.create_all()
+    db.session.commit()
     port = int(os.environ.get('PORT', 5000)) 
 #     print(platform.python_version())
 #     print(port)
-    app.run(host='0.0.0.0', port=port, debug=True)
+    app.run(host='0.0.0.0', port=port, debug=False)
