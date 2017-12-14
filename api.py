@@ -38,8 +38,11 @@ api.add_resource(HelloController, '/api/hello')
 
 if __name__ == '__main__':
     db.create_all()
+    user = User('John Doe', 'john.doe@example.com')
+    db.session.add(user)
+    all_users = User.query.all()
+    print(all_users)
     db.session.commit()
-    port = int(os.environ.get('PORT', 5000)) 
 #     print(platform.python_version())
 #     print(port)
-    app.run(host='0.0.0.0', port=port, debug=False)
+    app.run(debug=True)
