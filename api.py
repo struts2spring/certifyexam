@@ -3,8 +3,10 @@ from flask import Flask
 from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
 from src.controllers.helloController import HelloController
-from src.service.userService import UserService
+# from src.service.userService import UserService
 import os
+import platform
+from src.controllers.user import UserController, UsersController
  
 app = Flask(__name__)
  
@@ -20,11 +22,13 @@ db = SQLAlchemy(app)
 
 
 
- 
-api.add_resource(HelloController, '/api/hello')
+api.add_resource(UsersController, '/users')
+api.add_resource(UserController, '/user/<user_id>')
+# api.add_resource(HelloController, '/api/hello')
 
 if __name__ == '__main__':
-    UserService().initDatabase()
-#     print(platform.python_version())
+#     UserService().initDatabase()
+#     print(os.environ)
+    print(platform.python_version())
 #     print(port)
     app.run(debug=True)

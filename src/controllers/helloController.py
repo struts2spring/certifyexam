@@ -5,7 +5,7 @@ Created on 14-Dec-2017
 '''
 from flask_restful import Resource
 # from src.service.userService import UserService
-# from src.model.user import User
+# from src.dao.user import User
 # from api import db
 
 
