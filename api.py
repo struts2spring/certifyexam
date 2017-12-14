@@ -13,7 +13,7 @@ print("----------------------")
 print(os.environ)
 print("----------------------")
 # print(os.environ['DATABASE_URL'])
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['HEROKU_POSTGRESQL_AQUA_URL']
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///static/db/test.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
  
